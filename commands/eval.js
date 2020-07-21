@@ -1,4 +1,4 @@
-reexports.run = (client, message, args) => {
+exports.run = (client, message, args) => {
     if(message.author.id != "607941671962935336") return;
     if(!args[0]) {
         return message.channel.send("Please provide code for me to run!");
@@ -11,7 +11,7 @@ reexports.run = (client, message, args) => {
         }
     } catch (err) {
         return message.channel.send({embed: {
-            color: 10038562,
+            color: 7948427,
             description: `**Error:**\n`
             + `\`There was an error while compiling your code: ${err}\``,
             author: {
@@ -21,7 +21,7 @@ reexports.run = (client, message, args) => {
         }});
     }
     return message.channel.send({embed: {
-        color: 15158332,
+        color: 7948427,
         description: `**Success:**\n`
             + `\`Your code compiled successfully!\``,
         author: {
@@ -29,4 +29,5 @@ reexports.run = (client, message, args) => {
             icon_url: message.author.displayAvatarURL()
         }
     }});
+} }});
 }

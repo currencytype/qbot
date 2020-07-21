@@ -95,7 +95,7 @@ exports.run = async (client, message, args) => {
     if(process.env.logchannelid === 'false') return;
     let logchannel = await message.guild.channels.cache.get(process.env.logchannelid);
     logchannel.send({embed: {
-        color: 2127726,
+        color: 15158332,
         description: `<@${message.author.id}> has demoted ${username} from ${rankNameInGroup} (${rankInGroup}) to ${demoteResponse.newRole.name} (${demoteResponse.newRole.rank}).`,
         author: {
             name: message.author.tag,

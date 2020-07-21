@@ -1,3 +1,4 @@
+  
 const express = require('express');
 const app = express();
 
@@ -41,7 +42,7 @@ async function onShout(){
         color: 2127726,
         description: currentshout.body,
         author: {
-          name: shout.poster.username,
+          name: currentshout.poster.username,
           icon_url: `http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&format=png&username=${shout.poster.username}`
         }
       }});
@@ -50,7 +51,7 @@ async function onShout(){
         color: 2127726,
           description: '*Shout cleared.*',
             author: {
-              name: shout.poster.username,
+              name: currentshout.poster.username,
               icon_url: `http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&format=png&username=${shout.poster.username}`
             }
       }});
@@ -84,8 +85,8 @@ client.on('ready', async () => {
   + `> Servers: ${client.guilds.cache.size}`));
   let botstatus = fs.readFileSync('./bot-status.json');
   botstatus = JSON.parse(botstatus);
-  if(botstatus.activity == 'true') return;
-  if(botstatus.activitytype == 'WATCHING'){
+  if(botstatus.activity == 'false') return;
+  if(botstatus.activitytype == 'STREAMING'){
     client.user.setActivity(botstatus.activitytext, {
       type: botstatus.activitytype,
       url: botstatus.activityurl
